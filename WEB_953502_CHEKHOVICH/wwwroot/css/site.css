@@ -1,0 +1,24 @@
+﻿header, footer 
+{
+    background-color: #343a40;
+}
+
+.nav-color
+{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.pixel-mover
+{
+    margin-left: 160px;
+}
+
+.small-pixel-mover
+{
+    margin-left: 20px;
+}
+
+.smaller-pixel-mover 
+{
+    margin-left: 10px;
+}

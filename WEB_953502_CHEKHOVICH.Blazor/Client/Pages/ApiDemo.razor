@@ -1,0 +1,23 @@
+﻿@using WEB_953502_CHEKHOVICH.Blazor.Client.Components
+@page "/apidemo"
+@inject HttpClient client
+<div class="container">
+    <ComputersList @bind-Computers="@Computers" SelectedObjectChanged="ShowDetails"></ComputersList>
+    <ComputerDetails @bind-Computer="SelectedComputer"></ComputerDetails>
+</div>
+@code {
+    [Parameter]
+    public IEnumerable<ListViewModel> Computers { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        Computers = await client.GetFromJsonAsync<IEnumerable<ListViewModel>>("api/computers");
+    }
+
+    [Parameter]
+    public DetailsViewModel SelectedComputer { get; set; }
+    private async Task ShowDetails(int id)
+    {
+        SelectedComputer = await
+        client.GetFromJsonAsync<DetailsViewModel>($"api/computers/{id}");
+    }
+    }

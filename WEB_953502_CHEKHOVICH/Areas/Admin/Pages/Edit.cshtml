@@ -1,0 +1,81 @@
+﻿@page "{id:int}"
+@model WEB_953502_CHEKHOVICH.Areas.Admin.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Computer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Computer.ComputerId" />
+            <div class="form-group">
+                <label asp-for="Computer.Name" class="control-label"></label>
+                <input asp-for="Computer.Name" class="form-control" />
+                <span asp-validation-for="Computer.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Computer.RAM" class="control-label"></label>
+                <input asp-for="Computer.RAM" class="form-control" />
+                <span asp-validation-for="Computer.RAM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Computer.GraphicsCard" class="control-label"></label>
+                <input asp-for="Computer.GraphicsCard" class="form-control" />
+                <span asp-validation-for="Computer.GraphicsCard" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Computer.CPU" class="control-label"></label>
+                <input asp-for="Computer.CPU" class="form-control" />
+                <span asp-validation-for="Computer.CPU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @if (!string.IsNullOrEmpty(Model.Computer.Image))
+                {<img src=~/Images/@Model.Computer.Image
+                      alt="NoSuchFile" width="150" />
+                }
+                else
+                {
+                    <h4>Файл изображения не задан</h4>
+                }
+                <div class="custom-file mt-3">
+                    <input type="file" class="custom-file-input"
+                           asp-for="Image" id="customFile">
+                    <label class="custom-file-label" for="customFile">
+                        Выберите файл изображения
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Computer.Price" class="control-label"></label>
+                <input asp-for="Computer.Price" class="form-control" />
+                <span asp-validation-for="Computer.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Computer.ComputerGroupId" class="control-label"></label>
+                <select asp-for="Computer.ComputerGroupId" class="form-control" asp-items="ViewBag.ComputerGroupId"></select>
+                <span asp-validation-for="Computer.ComputerGroupId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script src="~/lib/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+    <script>
+        bsCustomFileInput.init();
+    </script>
+}

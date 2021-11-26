@@ -1,0 +1,21 @@
+﻿@using WEB_953502_CHEKHOVICH.Blazor.Client.Models
+
+@if (Computer != null)
+{
+    <img src="@imageSrc" class="img-thumbnail" width="150" />
+    <div>
+        <p>@Computer.Name - @Computer.CPU, @Computer.GraphicsCard</p> <div class="badge badge-info ">@Computer.Price рублей</div>
+    </div>
+}
+@code {
+    [Parameter]
+    public DetailsViewModel Computer { get; set; }
+    [Parameter]
+    public EventCallback<DetailsViewModel> ComputerChanged { get; set; }
+    string imageSrc
+    {
+        get
+        {
+            return $"images/{Computer.Image}";
+        }
+    } }

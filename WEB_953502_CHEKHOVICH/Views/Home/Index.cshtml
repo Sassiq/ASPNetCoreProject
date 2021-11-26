@@ -1,0 +1,69 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="container">
+    <h1>Лабораторная работа 2</h1>
+    <h2>Список</h2>
+    <ol type="A">
+        @for (int i = 1; i < 5; i++)
+        {
+            <li>Элемент списка номер @i</li>
+        }
+    </ol>
+    <hr />
+    <h2>Форма</h2>
+    <form method="post">
+        <div class="form-check pixel-mover">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="checkBox1">
+            <label class="form-check-label" for="gridCheck1">Чек-бокс 1</label>
+        </div>
+        <div class="form-check pixel-mover">
+            <input class="form-check-input" type="checkbox" id="gridCheck2" name="checkBox2">
+            <label class="form-check-label" for="gridCheck2">Чек-бокс 2</label>
+        </div>
+
+        <br />
+        <div class="form-check pixel-mover form-check-inline">
+            <input class="form-check-input" type="radio" id="gridRadios1" name="gridradios" value="option1">
+            <label class="form-check-label" for="gridRadios1">Радио 1</label>
+        </div>
+        <div class="form-check small-pixel-mover form-check-inline">
+            <input class="form-check-input" type="radio" id="gridRadios2" name="gridradios" value="option2">
+            <label class="form-check-label" for="gridRadios2">Радио 2</label>
+        </div>
+        <div class="form-check small-pixel-mover form-check-inline">
+            <input class="form-check-input" type="radio" id="gridRadios3" name="gridradios" value="option3">
+            <label class="form-check-label" for="gridRadios3">Радио 3</label>
+        </div>
+
+        <br />
+        <br />
+        <div class="form-group row">
+            <label for="inputEmail" class="col-sm-2 col-form-label">Логин</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail" placeholder="Введите логин" name="login">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Пароль</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Введите пароль" name="password">
+            </div>
+        </div>
+
+        <div class="pixel-mover">
+            <select asp-items="@ViewData["Lst"] as SelectList" name="selectedItem"></select>
+        </div>
+            
+
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </div>
+        </div>
+    </form>
+</div>
+
